@@ -1,14 +1,12 @@
 ## Weekly Individual Project Update Report
-### Group number:
-### Student name:
-### Week: _(Give week number and also dates covered, where a week is Mon-Sun)_
+### Group number: L1W-G11
+### Student name: Cristian Figueroa
+### Week: 3, Mon Jan 24 - Sun Jan 30
 ___
-1. **How many hours did you spend on the project this week? (0-10)**
+1. 1
 
-2. **Give rough breakdown of hours spent on 1-3 of the following:***
-   (meetings, information gathering, design, research, brainstorming, evaluating options, prototyping options, writing/documenting, refactoring, testing, software implementation, hardware implementation)
-   1. Top item: activity, hours
-   2. 2nd item: activity, hours
+2. 
+   1. Project Brainstorm: Finalized project idea of the baby monitor, 1 hour
 3. ***What did you accomplish this week?*** _(Be specific)_
   - 
   - 
