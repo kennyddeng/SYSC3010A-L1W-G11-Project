@@ -1,7 +1,7 @@
 ## Weekly Individual Project Update Report
-### Group number:
-### Student name:
-### Week: _(Give week number and also dates covered, where a week is Mon-Sun)_
+### Group number: 11
+### Student name: Kenny Deng
+### Week: 3 (2022-01-23/2022-01-30)
 ___
 1. **How many hours did you spend on the project this week? (0-10)**
 
