@@ -1,4 +1,5 @@
 from A import *
+from B import *
 from T import *
 
 def function_TA():
