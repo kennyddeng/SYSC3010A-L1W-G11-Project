@@ -1,7 +1,7 @@
 ## Weekly Individual Project Update Report
 ### Group number: L1W-G11
 ### Student name: Christopher Nguyen
-### Week: 4(From Man Jan 31 to Sun Feb 6)_
+### Week: 4(From Man Jan 31 to Sun Feb 6)
 ___
 1. **How many hours did you spend on the project this week? 1.5**
 
