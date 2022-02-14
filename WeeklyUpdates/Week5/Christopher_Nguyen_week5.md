@@ -7,7 +7,7 @@ ___
 
 2. **Give rough breakdown of hours spent on 1-3 of the following:***
    (meetings, information gathering, design, research, brainstorming, evaluating options, prototyping options, writing/documenting, refactoring, testing, software implementation, hardware implementation)
-   1. Writing/Documenting: Wrote and finished draft proposal. 3 hr.
+   1. Writing/Documenting: Wrote and finished draft proposal. 3 hr
    3. Meetings: Group meeting discussion, make plans. 1 hr 
 3. ***What did you accomplish this week?*** _(Be specific)_
   - Made diagrams for draft proposal and used feedback to improve document.
