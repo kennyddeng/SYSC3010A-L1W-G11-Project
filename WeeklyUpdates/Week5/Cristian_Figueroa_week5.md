@@ -1,7 +1,7 @@
 ## Weekly Individual Project Update Report
 ### Group number: L1W-G11
 ### Student name: Cristian Figueroa
-### Week: 4, Mon Jan 31 - Sun Feb 6
+### Week: 5, Mon Feb 7 - Sun Feb 13
 ___
 1. **Hours spent on project:**
    6
