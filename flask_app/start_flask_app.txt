@@ -1,0 +1,10 @@
+Following instructions based on this video: https://www.youtube.com/watch?v=QjtW-wnXlUY
+
+To run the flask app...
+
+1. Open terminal and cd to flask_app directory
+2. Create python virtual environment, type command: python3 -m venv env
+3. Start virtual environment, type command: source env/bin/activate
+4. Install python requirements, type command: python3 -m pip install -r requirements.txt
+5. Set FLASK_APP global variable, type command: export FLASK_APP=myapp.py
+6. To run app type command: flask run --host=0.0.0.0
