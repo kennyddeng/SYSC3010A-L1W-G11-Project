@@ -10,3 +10,6 @@ Contains required python packages for the flask app
 
 ## [index.html](templates/index.html)
 Contains HTML file for flask app
+
+## [styles.css](static/styles.css)
+Contains css style sheet for index.html
