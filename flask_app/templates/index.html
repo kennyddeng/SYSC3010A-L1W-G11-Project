@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='reset.css') }}" />
+    <!-- https://stackoverflow.com/questions/22259847/application-not-picking-up-css-file-flask-python -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>My Baby Monitor</title>  
+</head>
+<body>
+    <div class="nav">
+        <h1>Your Baby Monitor</h1>
+        <nav>
+            <ul>
+                <li><a href="http://localhost:5000">Data</a></li>
+                <li><a href="#">Threshold</a></li>
+                <li><a href="#">Livestream</a></li>
+            </ul>   
+            </nav> 
+    </div>
+</body>
+</html>
