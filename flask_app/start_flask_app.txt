@@ -1,5 +1,3 @@
-Following instructions based on this video: https://www.youtube.com/watch?v=QjtW-wnXlUY
-
 To run the flask app...
 
 1. Open terminal and cd to flask_app directory
@@ -7,4 +5,8 @@ To run the flask app...
 3. Start virtual environment, type command: source env/bin/activate
 4. Install python requirements, type command: python3 -m pip install -r requirements.txt
 5. Set FLASK_APP global variable, type command: export FLASK_APP=myapp.py
-6. To run app type command: flask run --host=0.0.0.0
+6. Set FLASK_ENV global variable (turns on debug mode), type command: export FLASK_ENV=development
+7. To run app type command: flask run --host=0.0.0.0
+
+The flask app runs on port 5000 on your pi's address.
+Access the flask app by typing in browser: http://yourpi-ip-address:5000
