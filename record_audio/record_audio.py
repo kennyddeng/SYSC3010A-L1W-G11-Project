@@ -6,7 +6,7 @@ sample_format = pyaudio.paInt16      # 16 bits per sample
 channels = 2      # Number of audio channels
 fs = 44100        # Record at 44100 samples per second
 time_in_seconds = 3
-filename = "soundsample.wav"
+filename = "soundsampletest.wav"
  
 p = pyaudio.PyAudio()  # Create an interface to PortAudio
  
