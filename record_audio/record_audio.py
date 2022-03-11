@@ -1,36 +1,24 @@
 import pyaudio
 import wave
  
-FORMAT = pyaudio.paInt16
-CHANNELS = 2
-RATE = 44100
-CHUNK = 1024
-RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "file.wav"
- 
 audio = pyaudio.PyAudio()
- 
-# start Recording
-stream = audio.open(format=FORMAT, channels=CHANNELS,
-                rate=RATE, input=True,
-                frames_per_buffer=CHUNK)
-print("recording...")
+stream = audio.open(format = pyaudio.paInt16, channels = 1, rate = 44100, input = True, frames_per_buffer = 1024)
+
 frames = []
- 
-for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-    data = stream.read(CHUNK)
-    frames.append(data)
-print("finished recording")
- 
- 
-# stop Recording
+
+try:
+    while True:
+        data = stream.read(1024)
+        frames.append(data)
+except KeyboardInterrupt:
+    pass
+
 stream.stop_stream()
 stream.close()
 audio.terminate()
- 
-waveFile = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
-waveFile.setnchannels(CHANNELS)
-waveFile.setsampwidth(audio.get_sample_size(FORMAT))
-waveFile.setframerate(RATE)
-waveFile.writeframes(b''.join(frames))
-waveFile.close()
+
+sound_file = wave.open("myrecording.wav", "wb")
+sound_file.setnchannels(1)
+sound_file.setwampwidth(audio.getsample_size(pyaudio.paInt16))
+sound_file.setframerate(44100)
+sound_file.writeframes(b''.join(frames))
