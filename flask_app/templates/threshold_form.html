@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='reset.css') }}" />
+    <!-- https://stackoverflow.com/questions/22259847/application-not-picking-up-css-file-flask-python -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>My Baby Monitor</title>  
+</head>
+<body>
+    <div class="main">
+        <h1>Your Baby Monitor</h1>
+        <nav>
+            <ul>
+                <li><a href="/getdata">Get Data</a></li>
+                <li><a href="/setthreshold">Set Threshold</a></li>
+                <li><a href="/livestream">Livestream</a></li>
+            </ul>   
+        </nav> 
+    </div>
+    <div class="main">
+        <form method="post" action="/setthreshold">
+            <h2 class="formElements"> Set Temperature Threshold </h2>
+            <div class="formElements">
+                <label> Minimum Temperature</label>
+                <input type="number" name="min_temp"/>
+            </div>
+            <div class="formElements">
+                <label class="formElements"> Maximum Temperature</label>
+                <input type="number" name="max_temp"/>
+            </div>
+            <input class="submit" type="submit"/>
+        </form>
+    </div>
+</body>
+</html>
