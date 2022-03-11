@@ -10,6 +10,14 @@ app = Flask(__name__)
 def default():
     return render_template('index.html')
 
-#if __name__ == '__main__':
-    #server_port = os.environ.get('PORT', '8080')
-    #app.run(debug=False, port=server_port, host='0.0.0.0')
+@app.route('/getdata')
+def get_data():
+    return "Hello World"
+
+@app.route('/setthreshold')
+def set_threshold():
+    return "Hello World"
+
+@app.route('/livestream')
+def livestream():
+    return "Hello World"
