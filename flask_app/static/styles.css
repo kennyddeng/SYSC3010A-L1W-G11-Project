@@ -1,7 +1,7 @@
-.nav {
+.main {
     width: 500px;
     margin: auto;
-    height: 150px;
+    height: 200px;
     box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
     border-radius: 8px/7px; 
     background-color: #00254a;
@@ -19,7 +19,7 @@ h1 {
 }
 
 nav {
-    margin-top: 5px;
+    margin-top: 20px;
     padding-top: 30px;
     height: 50px;
 }
@@ -53,4 +53,23 @@ nav ul li a {
 
 nav ul li a:hover {
     color: black;
+}
+
+form {
+    padding: 2rem;
+    height: 8rem;
+}
+
+#temp {
+    padding: 2rem;
+    margin-bottom: 500pxl;
+}
+
+.submit {
+    display: block;
+    margin: auto;
+}
+
+.formElements {
+    padding-bottom: 1rem;
 }
