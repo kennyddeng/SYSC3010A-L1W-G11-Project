@@ -1,5 +1,5 @@
 .main {
-    width: 500px;
+    width: 650px;
     margin: auto;
     height: 200px;
     box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
@@ -10,6 +10,7 @@
     font-size: large;
     margin-top: 25px;
     color: white;
+    overflow: auto;
 }
 
 h1 {
@@ -72,4 +73,42 @@ form {
 
 .formElements {
     padding-bottom: 1rem;
+}
+
+.dataTable {
+    border-collapse: collapse;
+    margin: auto;
+  }
+  
+.dataTable td {
+background-color: #365778;
+border-right: 1pt solid #00254a;
+border-left: 1pt solid #00254a;
+padding: 5pt;
+}
+
+#divtwo {
+    margin-top: 5px;
+}
+
+#divthree {
+    margin-top: 5px;
+}
+
+#dataTable {
+    margin-top: 5px;
+    height: 400px;
+}
+
+#video {
+    margin-top: 5px;
+    height: 400px;
+}
+
+audio {
+    padding: 4rem;
+}
+
+video {
+    padding: 1.5rem;
 }
