@@ -20,18 +20,31 @@
         </nav> 
     </div>
     <div id="divtwo" class="main">
-        <form method="post" action="/setthreshold">
-            <h2 class="formElements"> Set Temperature Threshold </h2>
+        <form method="post" action="/recording">
             <div class="formElements">
-                <label> Minimum Temperature</label>
-                <input type="number" name="min_temp"/>
-            </div>
-            <div class="formElements">
-                <label class="formElements"> Maximum Temperature</label>
-                <input type="number" name="max_temp"/>
+                <h2 class="formElements"> View Recordings </h2>
+                <label> Recording Type </label>
+                <select name="type">
+                    <option>Choose Recording Type</option>
+                    <option>Audio</option>
+                    <option>Video</option>
+                </select>
             </div>
             <input class="submit" type="submit"/>
         </form>
     </div>
+    {% if video %}
+        <div id="video" class="main">
+            <video width="560" height="340" preload controls>
+                <source src="{{ url_for('static',filename='recordings/video/video0.mp4') }}" type='video/mp4'> 
+            </video>
+        </div>
+    {% elif audio %}
+        <div id="divthree" class="main">
+            <audio controls>
+                <source src="{{ url_for('static',filename='recordings/audio/test0.wav') }}" type='audio/wav'> 
+            </audio>
+        </div>
+    {% endif %}
 </body>
 </html>
