@@ -4,11 +4,17 @@ Flask Server for baby monitor front end GUI
 import os
 from flask import Flask, render_template, request, make_response
 from firebase import *
+from subprocess import call
+from pathlib import Path
 
 app = Flask(__name__)
 
 # Init Variables
-db = Firebase().db
+firebase = Firebase()
+db = firebase.db
+storage = firebase.storage
+videoPath = str(Path(__file__).parent.absolute()) + "/static/recordings/video/"
+audioPath = str(Path(__file__).parent.absolute()) + "/static/recordings/audio/"
 
 @app.route('/')
 def default():
@@ -22,14 +28,16 @@ def get_data():
     # If user has entered sensorid, display data for that sensor
     elif request.method == 'POST':
         sensor_id = request.form['sensorID']
-        entries = db.child("sensors").child(sensor_id).child("entries").get().each()
+        data = db.child("sensors").child(sensor_id).child("entries").get().each()
         print("Printing data for sensor #{}".format(sensor_id))
-        for entry in entries:
-            value = entry.val()["value"]
+        entries = []
+        for entry in data:
+            value = str(round(entry.val()["value"], 1)) + "°C"
             date = entry.val()["date"]
             time = entry.val()["time"]
-            print("Value: {}, Date: {}, Time: {}".format(value, date, time))
-        return render_template('data_form.html')
+            entries.append({"sensorID": sensor_id,"date": date, "time": time,"value": value})
+        entries.reverse() # Show latest entries first
+        return render_template('data_form_table.html', entries=entries)
 
 @app.route('/setthreshold', methods=['POST', 'GET'])
 def set_threshold():
@@ -49,3 +57,31 @@ def set_threshold():
 @app.route('/livestream')
 def livestream():
     return "Hello World"
+
+@app.route('/recording', methods=['POST', 'GET'])
+def view_recordings():
+    # If user selects recordings, present form
+    if request.method == 'GET':
+        return render_template('recordings.html')
+    # If user has entered sensorid, display data for that sensor
+    elif request.method == 'POST':
+        rec_type = request.form['type']
+
+        # Display video recording
+        if rec_type == "Video":
+            # Check if file exists before downloading
+            if not os.path.exists(videoPath + "video0.mp4"):
+                storage.child("video0.mp4").download(path="/", filename="video0.mp4")
+                cmd = "mv video0.mp4 static/recordings/video/video0.mp4"
+                call([cmd], shell=True)
+                print("Retrieving video file")
+            return render_template('recordings.html', video=True)
+        # Display audio recording
+        elif rec_type == "Audio":
+            # Check if file exists before downloading
+            if not os.path.exists(audioPath + "test0.wav"):
+                storage.child("test0.wav").download(path="/", filename="test0.wav")
+                cmd = "mv test0.wav static/recordings/audio/test0.wav"
+                call([cmd], shell=True)
+                print("Retrieving audio file")
+            return render_template('recordings.html', audio=True)
