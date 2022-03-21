@@ -1,7 +1,7 @@
 ## Weekly Individual Project Update Report
 ### Group number: L1W-G11
 ### Student name: Christopher Nguyen
-### Week: 8, Mon March 14 - Sun March 20
+### Week: 9, Mon March 14 - Sun March 20
 ___
 1. **Hours spent on project:**
    2.5
