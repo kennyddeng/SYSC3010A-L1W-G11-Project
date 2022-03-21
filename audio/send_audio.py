@@ -1,3 +1,4 @@
+from pathlib import Path
 import pyrebase
 import RPi.GPIO as GPIO
 #import time
@@ -20,8 +21,8 @@ firebase = pyrebase.initialize_app(config)
 sr = firebase.storage()
 
 def send_audio_to_firebase_storage():
-    name = "video2.h264"
-    sr.child(name).put(name)
+    name = str(Path().resolve().parent) + "/recordings/test0.wav"
+    sr.child("recordings").child("audio").child("test0.wav").put(name)
     print(name, "sent to Firebase Storage")
     
 if __name__ == "__main__":
