@@ -71,17 +71,17 @@ def view_recordings():
         if rec_type == "Video":
             # Check if file exists before downloading
             if not os.path.exists(videoPath + "video0.mp4"):
-                storage.child("video0.mp4").download(path="/", filename="video0.mp4")
+                print("Retrieving video file")
+                storage.child("recordings/video/video0.mp4").download(path="/", filename="video0.mp4")
                 cmd = "mv video0.mp4 static/recordings/video/video0.mp4"
                 call([cmd], shell=True)
-                print("Retrieving video file")
             return render_template('recordings.html', video=True)
         # Display audio recording
         elif rec_type == "Audio":
             # Check if file exists before downloading
             if not os.path.exists(audioPath + "test0.wav"):
-                storage.child("test0.wav").download(path="/", filename="test0.wav")
+                print("Retrieving audio file")
+                storage.child("recordings/audio/test0.wav").download(path="/", filename="test0.wav")
                 cmd = "mv test0.wav static/recordings/audio/test0.wav"
                 call([cmd], shell=True)
-                print("Retrieving audio file")
             return render_template('recordings.html', audio=True)
