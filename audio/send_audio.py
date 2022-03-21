@@ -22,7 +22,7 @@ sr = firebase.storage()
 
 def send_audio_to_firebase_storage():
     name = str(Path().resolve().parent) + "/recordings/test0.wav"
-    sr.child("audio_recordings").child("test0.wav").put(name)
+    sr.child("recordings").child("audio").child("test0.wav").put(name)
     print(name, "sent to Firebase Storage")
     
 if __name__ == "__main__":
