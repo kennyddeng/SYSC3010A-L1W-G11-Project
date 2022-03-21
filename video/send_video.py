@@ -22,7 +22,7 @@ sr = firebase.storage()
 
 def send_video_to_firebase_storage():
     name = str(Path().resolve().parent) + "/recordings/video2.h264"
-    sr.child("video_recordings").child("video2.h264").put(name)
+    sr.child("recordings").child("video").child("video2.h264").put(name)
     print(name, "sent to Firebase Storage")
     
 if __name__ == "__main__":
