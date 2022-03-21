@@ -11,7 +11,7 @@ ___
    2. Software Implementation: Started initial development of audio and video streaming to Flask server. 2.5 hours.
    3. Meetings: Discussed with teammates Unit Testing Demo and current work. 0.5 hours.   
 3. ***What did you accomplish this week?*** _(Be specific)_
-  - Researched how to send audio and video to Flask server. Began implementation of aforementioned data streaming.
+  - Researched how to send audio and video to Flask server. Began implementation of aforementioned audio and video streaming.
 4. ***How do you feel about your progress?*** _(brief, free-form reflection)_
   - Good progress made. Nearing completion of all functions of project.
 5. ***What are you planning to do next week***? _(give specific goals)_
