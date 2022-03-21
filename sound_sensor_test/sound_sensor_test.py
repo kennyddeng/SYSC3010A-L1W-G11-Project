@@ -27,10 +27,11 @@ GPIO.setup(channel, GPIO.IN)
 key = 0
 
 def writeData():
-    data = {'date':time.strftime('%Y-%m-%d'), 'time':time.strftime('%H:%M:%S')}
-             
+    data = {'date':time.strftime('%Y-%m-%d'), 'time':time.strftime('%H:%M:%S'), "value": "Sound Detected"}
+    
     global key    
-    db.child('sensors').child('sound_sensor').child(key).set(data)
+    #db.child('sensors').child('sound_sensor').child(key).set(data)
+    db.child("sensors").child("sound_sensor").child("entries").child(time.strftime('D%Y-%m-%dT%H:%M:%S')).set(data)
     key += 1
     
 def outputEventToConsole():
@@ -40,6 +41,7 @@ def callback(channel):
     if GPIO.input(channel):
         outputEventToConsole()
         writeData()
+        time.sleep(10)
     
 GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime = 300)
 GPIO.add_event_callback(channel, callback)
