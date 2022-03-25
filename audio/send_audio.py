@@ -1,6 +1,6 @@
 from pathlib import Path
 import pyrebase
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 #import time
 #from datetime import datetime
 
