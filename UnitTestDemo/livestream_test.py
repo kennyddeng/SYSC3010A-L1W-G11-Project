@@ -17,9 +17,9 @@ class TestLivestream(unittest.TestCase):
         pingTest.wait()
         #print(pingTest)
         if (pingTest == 1): # livestream not running
-            self.assertEquals(1, pingTest)
+            self.assertEqual(1, pingTest)
         else: # livestream running  
-            self.assertNotEquals(1, pingTest)
+            self.assertNotEqual(1, pingTest)
                  
 if __name__ == "__main__":
     unittest.main()
