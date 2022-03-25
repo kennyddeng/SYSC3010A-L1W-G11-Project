@@ -33,6 +33,8 @@ class Notify:
 
         client = Client(self._config['account_sid'], self._config['auth_token'])
 
+        messages = []
+
         for number in numbers:
             message = client.messages \
                 .create(
@@ -41,7 +43,11 @@ class Notify:
                     to=number
                 )
             if (message.status == 'queued'):
+                messages.append(message.status)
                 print("Message Sent")
+
+        return messages
+
 
 if __name__ == "__main__":
     # Instantiate Class
@@ -52,7 +58,11 @@ if __name__ == "__main__":
     user = 2 # Cristian's number
 
     # Send to specified user
-    notify.notify_users(msg=msg, users=user)
+    status = notify.notify_users(msg=msg, users=user)
+
+    # Get status
+    if status[0] == "queued":
+        print("Message Sent")
 
     # Send to all users
     #notify.notify_users(msg=msg)
