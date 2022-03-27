@@ -27,12 +27,20 @@ def get_data():
         return render_template('data_form.html')
     # If user has entered sensorid, display data for that sensor
     elif request.method == 'POST':
+        # Get sensor ID
         sensor_id = request.form['sensorID']
+        # Get sensor type
+        entry1 = db.child("sensors").child(sensor_id).child("type").get()
+        sensor_type = entry1.val()
+        # Get sensor data
         data = db.child("sensors").child(sensor_id).child("entries").get().each()
-        print("Printing data for sensor #{}".format(sensor_id))
+        print("Printing data for sensor: {}".format(sensor_id))
         entries = []
         for entry in data:
-            value = str(round(entry.val()["value"], 1)) + "°C"
+            if sensor_type == "temperature":
+                value = str(round(entry.val()["value"], 1)) + "°C"
+            else:
+                value = entry.val()["value"]
             date = entry.val()["date"]
             time = entry.val()["time"]
             entries.append({"sensorID": sensor_id,"date": date, "time": time,"value": value})
