@@ -1,3 +1,4 @@
 *env
 *__pycache__
-test.py
+gui_tests.py
+myapp_test.py
