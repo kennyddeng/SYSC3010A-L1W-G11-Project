@@ -6,7 +6,7 @@ camera = PiCamera()
 camera.start_preview()
 camera.start_recording(str(Path().resolve().parent) + "/recordings/video0.h264") # record and save to filename
 print("started recording")
-sleep(5)
+sleep(10)
 print("finished recording")
 camera.stop_recording()
 camera.stop_preview()
