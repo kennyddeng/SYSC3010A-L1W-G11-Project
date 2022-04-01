@@ -15,7 +15,8 @@ class TestLivestream(unittest.TestCase):
         pingTest = subprocess.Popen(["telnet", ip, port])
         pingTest.terminate()
         pingTest.wait()
-        #print(pingTest)
+        print(pingTest)
+        
         if (pingTest == 1): # livestream not running
             self.assertEqual(1, pingTest)
         else: # livestream running  

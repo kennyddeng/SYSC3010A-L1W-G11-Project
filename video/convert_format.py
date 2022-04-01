@@ -15,8 +15,8 @@ def merge_wav_mp4(vidName, audName, outName):
     call(["ffmpeg", "-i", vidName, "-i", audName, "-c:v", "copy", "-c:a", "aac", "-map", "0:v:0", "-map", "1:a:0", outName])    
 
 if __name__ == "__main__":
-    h264_to_mp4("video0")
-    vidName = str(Path().resolve().parent) + "/recordings/" + "video0" + ".mp4"
+    h264_to_mp4("test0")
+    vidName = str(Path().resolve().parent) + "/recordings/" + "test0" + ".mp4"
     audName = str(Path().resolve().parent) + "/recordings/" + "test0" + ".wav"
-    outName = str(Path().resolve().parent) + "/recordings/" + "stimk" + ".mp4"
+    outName = str(Path().resolve().parent) + "/recordings/" + "testMerge0" + ".mp4"
     merge_wav_mp4(vidName, audName, outName)
