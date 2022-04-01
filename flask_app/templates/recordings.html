@@ -23,28 +23,25 @@
         <form method="post" action="/recording">
             <div class="formElements">
                 <h2 class="formElements"> View Recordings </h2>
-                <label> Recording Type </label>
-                <select name="type">
-                    <option>Choose Recording Type</option>
-                    <option>Audio</option>
-                    <option>Video</option>
+                <label> Recordings </label>
+                <select name="recording_name">
+                <option>Choose Recording</option>
+                {% for recording in recordings %}
+                    <option>{{recording.name}}</option>
+                {% endfor %}
                 </select>
             </div>
             <input class="submit" type="submit"/>
         </form>
     </div>
-    {% if video %}
-        <div id="video" class="main">
-            <video width="560" height="340" preload controls>
-                <source src="{{ url_for('static',filename='recordings/video/video0.mp4') }}" type='video/mp4'> 
-            </video>
-        </div>
-    {% elif audio %}
-        <div id="divthree" class="main">
-            <audio controls>
-                <source src="{{ url_for('static',filename='recordings/audio/test0.wav') }}" type='audio/wav'> 
-            </audio>
-        </div>
-    {% endif %}
+{% if video %}
+    <div id="video" class="main">
+        <h1>Recording: {{name}}</h1>
+        <h2>Date: {{date}} Time: {{time}}</h2>
+        <video width="560" height="340" preload controls>
+            <source src="{{ url_for('static',filename='recordings/video/') }}{{name}}" type='video/mp4'> 
+        </video>
+    </div>
+{% endif %}
 </body>
 </html>

@@ -11,7 +11,7 @@ Contains logic for flask app
 ## [requirements.txt](requirements.txt)
 Contains required python packages for the flask app
 
-## [tempates]](templates)
+## [templates](templates)
 Contains HTML files that are used for the flask app
 
 ## [styles.css](static/styles.css)
