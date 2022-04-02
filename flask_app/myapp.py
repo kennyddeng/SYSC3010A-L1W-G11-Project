@@ -1,11 +1,17 @@
 """
 Flask Server for baby monitor front end GUI
+
+There are 4 main functions for this GUI
+1. "Get Data": The user enters a sensor ID and the GUI displays a table of historical sensor data
+2. "Set Threshold": The user enters the maximum and minimum temperature thresholds.
+3. "Livestream": The user is redirected to a video livestream.
+4. "View Recordings": The user can choose recordings to view from a list of available recordings.
 """
 import os
-from flask import Flask, render_template, request, redirect
-from firebase import *
 from subprocess import call
 from pathlib import Path
+from flask import Flask, render_template, request, redirect
+from firebase import *
 
 app = Flask(__name__)
 
@@ -34,7 +40,7 @@ def get_data():
         # Get sensor type
         entry1 = db.child("sensors").child(sensor_id).child("type").get()
         sensor_type = entry1.val()
-        # Get sensor data
+        # Get sensor data from DB
         data = \
             db.child("sensors").child(sensor_id).child("entries").get().each()
         print("Printing data for sensor: {}".format(sensor_id))
@@ -49,22 +55,23 @@ def get_data():
             entries.append({"sensorID": sensor_id, "date": date,
                             "time": time, "value": value})
         entries.reverse()  # Show latest entries first
-        return render_template('data_form_table.html', entries=entries)
+        return render_template('data_form.html', table=True, entries=entries)
 
 
 @app.route('/setthreshold', methods=['POST', 'GET'])
 def set_threshold():
-    # If user selects get data, present form
+    # If user selects set threshold, present form
     if request.method == 'GET':
         return render_template('threshold_form.html')
     # If user has entered temperture thresholds, update in DB
     elif request.method == 'POST':
+        sensor_id = request.form['sensorID']
         min_temp = request.form['min_temp']
         max_temp = request.form['max_temp']
         # Package data
         data = {"min_temperature": min_temp, "max_temperature": max_temp}
         # Update data in DB
-        db.child("sensors").child(123).update(data)
+        db.child("sensors").child(sensor_id).update(data)
         return render_template('threshold_form.html')
 
 
@@ -78,27 +85,31 @@ def view_recordings():
     # If user selects recordings, present form
     if request.method == 'GET':
         recordings = []
+        # Get a list of available recordings from the DB
         entry = db.child("sensors").child("recordings").child("entries").get().each()
         for line in entry:
             recordings.append({"name": line.val()["value"]})
         return render_template('recordings.html', recordings=recordings)
-    # If user has entered sensorid, display data for that sensor
+    # If user has selected a recording, retrive and display it
     elif request.method == 'POST':
         # Get recording name
         name = request.form['recording_name']
-        # Get recordings options
+        # Get a list of available recordings from the DB
         recordings = []
         entry = db.child("sensors").child("recordings").child("entries").get().each()
         for line in entry:
             recordings.append({"name": line.val()["value"], "date":line.val()["date"], "time":line.val()["time"]})
+            # Get the date and time for the recording selected by the user
             if line.val()["value"] == name:
                 date = line.val()["date"]
                 time = line.val()["time"]  
         # Check if file exists before downloading
         if not os.path.exists(videoPath + name):
             print("Retrieving video file")
+            # Download recording from storage
             storage.child(f"recordings/video/{name}").download(
                 path="/", filename=name)
+            # Move file into the designated directory
             cmd = f"mv {name} static/recordings/video/{name}"
             call([cmd], shell=True)
         return render_template('recordings.html', video=True, name=name, recordings=recordings, date=date, time=time)
