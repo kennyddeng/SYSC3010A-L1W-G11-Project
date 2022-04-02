@@ -2,7 +2,8 @@ import pyrebase
 
 class Firebase:
     """
-    Provides db object to interact with the Firebase DB
+    Firebase class that initializes the database connection and provides
+    accessible 'db' and 'storage' objects for accessing the database and storage.
     """
     def __init__(self):
         api_key = "AIzaSyBWMHPeUjEqT_P6g_jrxlKC431pr2xkTaU"
