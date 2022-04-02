@@ -2,7 +2,8 @@ from twilio.rest import Client ## pip install twilio
 
 class Notify:
     """
-    Provides Notify object to send notifications
+    Notify class that uses twilio API to connect to twilio account and send SMS messages.
+    The notify_users method can be used to send the notifications.
     """
     def __init__(self):
         account_sid = 'ACd18afd79f85de08f908fa9223c1dc5b7'
@@ -15,7 +16,7 @@ class Notify:
 
     def notify_users(self, msg, users="All"):
         """
-        Notfies the specifies users with the message
+        Notfies the specified users with the message
 
         :type msg: Str
         :param msg: The message to be sent to users
