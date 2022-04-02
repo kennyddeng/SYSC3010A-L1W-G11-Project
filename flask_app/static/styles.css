@@ -78,7 +78,7 @@ form {
 .dataTable {
     border-collapse: collapse;
     margin: auto;
-  }
+}
   
 .dataTable td {
 background-color: #365778;
@@ -111,4 +111,9 @@ audio {
 
 video {
     padding: 1.5rem;
+}
+
+#setthreshold {
+    margin-top: 5px;
+    height: 250px;
 }
