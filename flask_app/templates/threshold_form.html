@@ -19,9 +19,13 @@
             </ul>   
         </nav> 
     </div>
-    <div id="divtwo" class="main">
+    <div id="setthreshold" class="main">
         <form method="post" action="/setthreshold">
             <h2 class="formElements"> Set Temperature Threshold </h2>
+            <div class="formElements">
+                <label class="formElements"> Sensor ID</label>
+                <input type="text" name="sensorID"/>
+            </div>
             <div class="formElements">
                 <label> Minimum Temperature</label>
                 <input type="number" name="min_temp"/>
