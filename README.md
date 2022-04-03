@@ -20,6 +20,8 @@ A web-based GUI is provided to allow parents and guardians to interact with the 
 
 
 ## Repo Description
+The following is a breakdown of the repository structure that details where the source files for each software application are located.
+
 ### [audio](audio)
 Directory contains the source files needed for recording and uploading audio using the microphone.
 
@@ -39,5 +41,35 @@ Directory contains the source files needed for recording and uploading video usi
 Directory contains the source files needed for querying and uploading temperature data.
 
 ## Installation Instructions
+The following instructions detail how to configure the hardware needed for this project. The following figure depicts the deployment diagram that is followed in this project.
+
+![Babymon drawio (2)](https://user-images.githubusercontent.com/93753142/161405517-7803758d-29e9-411f-b2dc-5b877db42501.png)
+
+
+### SenseHat Installation
+Raspberry Pi 1 is connected to the SenseHat. To install the SenseHat perform the following:  
+1. Turn off and disconnect the Raspberry Pi from the power supply.
+2. Align the SenseHat with the GPIO pins on the Raspberry Pi, push down until the SenseHat rests firmly on top of the Pi. *Insert image?*
+
+### Camera, Microphone, and Sound Sensor Installation
 
 ## Setup Instructions
+The following instructions detail how to configure software infrastructure needed for this project. Refer to the deployment diagram above for the software deployment.
+
+### Firebase Database and Storage
+The Firebase database is used to store sensor data, temperature thresholds, as well as video and audio recordings. To set up the Firebase database perform the following:  
+
+### Twilio SMS Service
+
+### Raspberry Pi 1
+
+### Raspberry Pi 2
+
+### Raspberry Pi 3
+Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Front End GUI for this project. To set up the flask server, perform the following:  
+1. On Raspberry Pi 3, create a new directory to clone this repo.
+2. Open the termincal, navigate to the new directory and clone the repo using the command: git clone
+3. Navigate to the flask_app directory in the newly cloned repo
+4. Edit [firebase.py](flask_app/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
+5. Open [requirements.txt](flask_app/requirements.txt), and install any missing python packages that are listed in the file.
+6. Open the terminal, navigate to the flask_app directory, and start the flask app using the command: source start_flask.sh
