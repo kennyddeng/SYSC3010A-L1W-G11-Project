@@ -58,8 +58,23 @@ The following instructions detail how to configure software infrastructure neede
 
 ### Firebase Database and Storage
 The Firebase database is used to store sensor data, temperature thresholds, as well as video and audio recordings. To set up the Firebase database perform the following:  
+1. Navigate to https://console.firebase.google.com/ and sign in with a google account
+2. Select add project
+3. Enter information, disable analytics and select create project
+4. Once project is created, navigate to Realtime Database on the left sidebar
+5. Select start in test mode and enable.
+6. Perform steps 5-6 for Storage
+7. Navigate to Authentication on the left sidebar
+8. At the top, select Sign-in method and then select Anonymous
+9. Navigate to the settings icon next to Project Overview on the left sidebar and select project settings, take note of the Project ID and Web API Key
+10. Finally navigate to the Realtime Database again and take note of Database URL which can be copied.
 
 ### Twilio SMS Service
+Twilio SMS service allows for sending SMS messages through Python. Twilio provides a phone number as well as a Python API that can be used to send SMS messages. To set up Twilio perform the following:  
+1. Navigate to https://www.twilio.com/ and sign up for a free trial
+2. Go through the Twilio tutorial to get a phone number
+3. Once the phone number has been created, take note of the Phone Number, Account SID, and Auth Token in the main console.
+4. Navigate to Develop on the left sidebar, select Phone Numbers > Manage > Verified Caller ID's and add phone numbers which will receive the SMS messages.
 
 ### Raspberry Pi 1
 
@@ -68,7 +83,7 @@ The Firebase database is used to store sensor data, temperature thresholds, as w
 ### Raspberry Pi 3
 Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Front End GUI for this project. To set up the flask server, perform the following:  
 1. On Raspberry Pi 3, create a new directory to clone this repo.
-2. Open the termincal, navigate to the new directory and clone the repo using the command: git clone
+2. Open the termincal, navigate to the new directory and clone the repo using the command: git clone https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project.git
 3. Navigate to the flask_app directory in the newly cloned repo
 4. Edit [firebase.py](flask_app/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
 5. Open [requirements.txt](flask_app/requirements.txt), and install any missing python packages that are listed in the file.
