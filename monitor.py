@@ -2,6 +2,8 @@ import pyrebase
 import RPi.GPIO as GPIO
 import time
 from datetime import datetime
+from audio import record_audio, send_audio
+from video import record_video, convert_format, send_video
 
 # Firebase Config
 api_key = "AIzaSyBWMHPeUjEqT_P6g_jrxlKC431pr2xkTaU"
@@ -37,15 +39,25 @@ def writeData():
 def outputEventToConsole():
     print("Sound Detected", time.strftime('D%Y-%m-%dT%H:%M:%S'))
 
+def update_video_recordings_db(filename):
+    currDateTime = datetime.now()
+    date = f"{currDateTime.year:04d}-{currDateTime.month:02d}-{currDateTime.day:02d}"
+    curr_time = f"{currDateTime.hour:02d}:{currDateTime.minute:02d}:{currDateTime.second:02d}"
+    entry = {"value": filename + ".mp4", "date": date, "time": curr_time}
+    db.child("sensors").child("recordings").child("entries").child(time.strftime('D%Y-%m-%dT%H:%M:%S')).set(entry)
+
 def callback(channel):
     if GPIO.input(channel):
         outputEventToConsole()
         writeData()
-        # record_vid
-        # record_aud
-        # vid_h264_to_mp4
-        # merge_vid_aud
-        # upload_vid
+        record_video.record()  # record_vid
+        record_audio.record()  # record_aud
+        time.sleep(1)  # add 1 second delay for reliability
+        filename = time.strftime('D%Y-%m-%dT%H:%M:%S')
+        convert_format.convert_and_merge(filename)  # vid_h264_to_mp4, merge_vid_aud
+        time.sleep(1)  # add 1 second delay for reliability
+        send_video.send_video_to_firebase_storage(filename)  # upload_vid
+        update_video_recordings_db(filename)
         time.sleep(30)
     
 GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime = 300)

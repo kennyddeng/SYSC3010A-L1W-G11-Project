@@ -20,9 +20,9 @@ config = {
 firebase = pyrebase.initialize_app(config)
 sr = firebase.storage()
 
-def send_video_to_firebase_storage():
-    name = str(Path().resolve().parent) + "/recordings/stimk.mp4"
-    sr.child("recordings").child("video").child("stimk.mp4").put(name)
+def send_video_to_firebase_storage(filename):
+    name = str(Path().resolve().parent) + "/SYSC3010A-L1W-G11-Project/recordings/" + filename + ".mp4"
+    sr.child("recordings").child("video").child(filename + ".mp4").put(name)
     print(name, "sent to Firebase Storage")
     
 if __name__ == "__main__":
