@@ -1,5 +1,6 @@
-flask
-picamera
+pyaudio (sudo pip3 install pyaudio)
+picamera (sudo apt-get install python3-picamera)
 mp4box (sudo apt install -y gpac)
 ffmpeg (sudo apt install ffmpeg)
 telnet (sudo apt-get install telnet)
+flask

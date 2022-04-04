@@ -8,10 +8,10 @@ from http import server
 PAGE="""\
 <html>
 <head>
-<title>picamera MJPEG streaming demo</title>
+<title>IoT Baby Monitor Alert System - Live Video Feed</title>
 </head>
 <body>
-<h1>PiCamera MJPEG Streaming Demo</h1>
+<h1>IoT Baby Monitor Alert System - Live Video Feed</h1>
 <img src="stream.mjpg" width="640" height="480" />
 </body>
 </html>
