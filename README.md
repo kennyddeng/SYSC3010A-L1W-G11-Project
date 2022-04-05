@@ -51,7 +51,21 @@ Raspberry Pi 1 is connected to the SenseHat. To install the SenseHat perform the
 1. Turn off and disconnect the Raspberry Pi from the power supply.
 2. Align the SenseHat with the GPIO pins on the Raspberry Pi, push down until the SenseHat rests firmly on top of the Pi. *Insert image?*
 
-### Camera, Microphone, and Sound Sensor Installation
+### PiCamera Installation
+Raspberry Pi 2 is connected to the PiCamera. To install the PiCamera perform the following:
+1. Turn off and disconnect the Raspberry Pi from the power supply.
+2. Open Raspberry Pi CSI port clasp. Align the PiCamera module with the CSI port on the Raspberry Pi, push down until the PiCamera module is fully seated in the CSI port. Close Raspberry Pi CSI port clasp. *Insert image?*
+
+### USB Microphone Installation
+Raspberry Pi 2 is connected to the USB Microphone. To install the USB Microphone perform the following:
+1. Turn off and disconnect the Raspberry Pi from the power supply.
+2. Plug USB Microphone into any available USB port on the Raspberry Pi. Rotate 180 degrees if USB Microphone does not insert. Try 3x as you were right the first attempt. *Insert image?*
+
+### Sound Sensor Installation
+Raspberry Pi 2 is connected to the Sound Sensor. To install the Sound Sensor perform the following:
+1. Turn off and disconnect the Raspberry Pi from the power supply.
+2. Plug Male end of Male-Female Jumper Wires to Sound Sensor Pinout. 1x for OUT/D.OUT, 1x for 5V, 1x for GND. Refer to Figure 1 for pin labels. NOTE: In Figure 1, OUT/A.OUT is not required (it is an additional microphone feature built into this make and model sound sensor, for this tutorial it is not required to be used).
+3. Plug Female end of Male-Female Jumper Wires to Raspberry Pi 4 Header Pins. Refer to Figure 1 for pin labels. Plug OUT/D.OUT wire into GPIO2 (PIN 3), Plug 5V into 5V (PIN 4), Plug GND into GROUND (PIN 6). NOTE: For more advanced users, you may be able to use different GPIO pins other then the ones listed in this tutorial. Please refer to Further Relevant Readings: Raspberry Pi GPIO Pins for reference.
 
 ## Setup Instructions
 The following instructions detail how to configure software infrastructure needed for this project. Refer to the deployment diagram above for the software deployment.
@@ -80,10 +94,10 @@ Twilio SMS service allows for sending SMS messages through Python. Twilio provid
 1. Create a new directory to clone this repo.
 2. Open the terminal, navigate to the new directory and clone the repo using the command: git clone https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project.git
 
-
-## Configure Firebase Database Configuration
+### Configure Firebase Database Configuration
 1. Edit [firebase.py](Python_Modules/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
 
+### Raspberry Pi/Device Setup
 ### Raspberry Pi 1
 
 ### Raspberry Pi 2
