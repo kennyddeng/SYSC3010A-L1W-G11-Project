@@ -66,8 +66,8 @@ def set_threshold():
     # If user has entered temperture thresholds, update in DB
     elif request.method == 'POST':
         sensor_id = request.form['sensorID']
-        min_temp = request.form['min_temp']
-        max_temp = request.form['max_temp']
+        min_temp = int(request.form['min_temp'])
+        max_temp = int(request.form['max_temp'])
         # Package data
         data = {"min_temperature": min_temp, "max_temperature": max_temp}
         # Update data in DB
