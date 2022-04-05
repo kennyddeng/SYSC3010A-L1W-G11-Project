@@ -76,15 +76,24 @@ Twilio SMS service allows for sending SMS messages through Python. Twilio provid
 3. Once the phone number has been created, take note of the Phone Number, Account SID, and Auth Token in the main console.
 4. Navigate to Develop on the left sidebar, select Phone Numbers > Manage > Verified Caller ID's and add phone numbers which will receive the SMS messages.
 
+### Clone Repository
+1. Create a new directory to clone this repo.
+2. Open the terminal, navigate to the new directory and clone the repo using the command: git clone https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project.git
+
+
+## Configure Firebase Database Configuration
+1. Edit [firebase.py](Python_Modules/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
+
 ### Raspberry Pi 1
 
 ### Raspberry Pi 2
+Raspberry Pi 2 is responsible for hosting the Video Livestream and monitoring/detecting ambient sound levels. When the ambient sound level reaches over a certain threshold, a video/audio file will be captured and uploaded to Firebase Storage for viewing on a Flask Server.
+1. To host the Video Livestream, navigate to [livestream.py](livestream.py) in the root directory and run the script.
+2. To constantly poll the ambient environment and detect high sound levels (and also record video/audio when this event occurs), navigate to [device2_monitor.py](device2_monitor.py) in the root directory and run the script.
 
 ### Raspberry Pi 3
-Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Front End GUI for this project. To set up the flask server, perform the following:  
-1. On Raspberry Pi 3, create a new directory to clone this repo.
-2. Open the termincal, navigate to the new directory and clone the repo using the command: git clone https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project.git
-3. Navigate to the flask_app directory in the newly cloned repo
-4. Edit [firebase.py](flask_app/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
-5. Open [requirements.txt](flask_app/requirements.txt), and install any missing python packages that are listed in the file.
-6. Open the terminal, navigate to the flask_app directory, and start the flask app using the command: source start_flask.sh
+Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Front End GUI for this project. To set up the flask server, perform the following:
+1. Navigate to the flask_app directory in the cloned repo
+2. Edit [firebase.py](flask_app/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
+3. Open [requirements.txt](flask_app/requirements.txt), and install any missing python packages that are listed in the file.
+4. Open the terminal, navigate to the flask_app directory, and start the flask app using the command: source start_flask.sh
