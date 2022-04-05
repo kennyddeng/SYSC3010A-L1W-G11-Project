@@ -20,7 +20,7 @@ app = Flask(__name__)
 # Init Variables
 firebase = Firebase()
 db = firebase.db
-storage = firebase.storage
+storage = firebase.sr
 videoPath = str(Path(__file__).parent.absolute()) + "/static/recordings/video/"
 audioPath = str(Path(__file__).parent.absolute()) + "/static/recordings/audio/"
 
