@@ -8,9 +8,6 @@ Used to quickstart the flask app after initial setup. To activate: source start_
 ## [myapp.py](myapp.py)
 Contains logic for flask app
 
-## [requirements.txt](requirements.txt)
-Contains required python packages for the flask app
-
 ## [templates](templates)
 Contains HTML files that are used for the flask app
 
