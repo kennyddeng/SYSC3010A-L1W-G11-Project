@@ -3,6 +3,6 @@ picamera (sudo apt-get install python3-picamera)
 mp4box (sudo apt install -y gpac)
 ffmpeg (sudo apt install ffmpeg)
 telnet (sudo apt-get install telnet)
-flask
-pyrebase
-sense-hat
+flask (sudo pip3 install flask)
+pyrebase (sudo pip3 install pyrebase)
+sense-hat (Ships with Raspberry Pi)
