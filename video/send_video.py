@@ -1,29 +1,16 @@
 from pathlib import Path
-import pyrebase
-#import RPi.GPIO as GPIO
-#import time
-#from datetime import datetime
+import sys
+sys.path.append("..")
+from Python_Modules.firebase import Firebase
 
-# Firebase Config
-api_key = "AIzaSyBWMHPeUjEqT_P6g_jrxlKC431pr2xkTaU"
-project_id = "sysc3010-project"
-database_url = "https://sysc3010-project-default-rtdb.firebaseio.com/"
-
-config = {
-"apiKey": api_key,
-"authDomain": "{}.firebaseapp.com".format(project_id),
-"databaseURL": database_url,
-"storageBucket": "{}.appspot.com".format(project_id)
-}
 
 # Firebase Storage Setup
-firebase = pyrebase.initialize_app(config)
-sr = firebase.storage()
+firebase = Firebase()
+sr = firebase.sr
+
 
 def send_video_to_firebase_storage(filename):
-    name = str(Path().resolve().parent) + "/SYSC3010A-L1W-G11-Project/recordings/" + filename + ".mp4"
+    name = str(Path().resolve()) + "/recordings/" + filename + ".mp4"
     sr.child("recordings").child("video").child(filename + ".mp4").put(name)
     print(name, "sent to Firebase Storage")
     
-if __name__ == "__main__":
-    send_video_to_firebase_storage()

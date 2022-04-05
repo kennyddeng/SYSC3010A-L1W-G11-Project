@@ -4,3 +4,4 @@ mp4box (sudo apt install -y gpac)
 ffmpeg (sudo apt install ffmpeg)
 telnet (sudo apt-get install telnet)
 flask
+pyrebase

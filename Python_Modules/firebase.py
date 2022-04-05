@@ -19,4 +19,4 @@ class Firebase:
 
         firebase = pyrebase.initialize_app(config)
         self.db = firebase.database()
-        self.storage = firebase.storage()
+        self.sr = firebase.storage()
