@@ -11,7 +11,9 @@ import os
 from subprocess import call
 from pathlib import Path
 from flask import Flask, render_template, request, redirect
-from firebase import *
+import sys
+sys.path.append("..")
+from Python_Modules.firebase import Firebase
 
 app = Flask(__name__)
 
@@ -69,9 +71,11 @@ def set_threshold():
         min_temp = int(request.form['min_temp'])
         max_temp = int(request.form['max_temp'])
         # Package data
-        data = {"min_temperature": min_temp, "max_temperature": max_temp}
+        data1 = {"min_temperature": min_temp}
+        data2 = {"max_temperature": max_temp}
         # Update data in DB
-        db.child("sensors").child(sensor_id).update(data)
+        db.child("sensors").child(sensor_id).update(data1)
+        db.child("sensors").child(sensor_id).update(data2)
         return render_template('threshold_form.html')
 
 
