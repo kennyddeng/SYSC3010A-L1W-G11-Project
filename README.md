@@ -22,6 +22,9 @@ A web-based GUI is provided to allow parents and guardians to interact with the 
 ## Repo Description
 The following is a breakdown of the repository structure that details where the source files for each software application are located.
 
+### [Python_Modules](Python_Modules)
+Directory contains  the source files for common python classes used in various places.
+
 ### [audio](audio)
 Directory contains the source files needed for recording and uploading audio using the microphone.
 
@@ -30,9 +33,6 @@ Directory contains the source files needed for querying and uploading sound sens
 
 ### [flask_app](flask_app)
 Directory contains the source files needed to host the flask app on a Pi. The flask app is the source of the front end GUI for the project.
-
-### [Python_Modules](Python_Modules)
-Directory contains  the source files for common python classes used in various places.
 
 ### [video](video)
 Directory contains the source files needed for recording and uploading video using the PiCamera.
@@ -97,7 +97,7 @@ Twilio SMS service allows for sending SMS messages through Python. Twilio provid
 ### Configure Firebase Database Configuration
 1. Edit [firebase.py](Python_Modules/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
 
-### Raspberry Pi/Device Setup
+## Raspberry Pi/Device Setup
 ### Raspberry Pi 1
 
 ### Raspberry Pi 2
