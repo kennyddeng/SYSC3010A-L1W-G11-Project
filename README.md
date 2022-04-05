@@ -43,7 +43,7 @@ Directory contains the source files needed for querying and uploading temperatur
 ## Installation Instructions
 The following instructions detail how to configure the hardware needed for this project. The following figure depicts the deployment diagram that is followed in this project.
 
-![Babymon drawio (2)](https://user-images.githubusercontent.com/93753142/161405517-7803758d-29e9-411f-b2dc-5b877db42501.png)
+![Babymon drawio](https://user-images.githubusercontent.com/93753142/161779506-d97d9bce-c92e-4c22-b393-4686e13ca8d2.png)
 
 
 ### SenseHat Installation
@@ -67,8 +67,8 @@ Raspberry Pi 2 is connected to the Sound Sensor. To install the Sound Sensor per
 2. Plug Male end of Male-Female Jumper Wires to Sound Sensor Pinout. 1x for OUT/D.OUT, 1x for 5V, 1x for GND. Refer to Figure 1 for pin labels. NOTE: In Figure 1, OUT/A.OUT is not required (it is an additional microphone feature built into this make and model sound sensor, for this tutorial it is not required to be used).
 3. Plug Female end of Male-Female Jumper Wires to Raspberry Pi 4 Header Pins. Refer to Figure 1 for pin labels. Plug OUT/D.OUT wire into GPIO2 (PIN 3), Plug 5V into 5V (PIN 4), Plug GND into GROUND (PIN 6). NOTE: For more advanced users, you may be able to use different GPIO pins other then the ones listed in this tutorial. Please refer to Further Relevant Readings: Raspberry Pi GPIO Pins for reference.
 
-## Setup Instructions
-The following instructions detail how to configure software infrastructure needed for this project. Refer to the deployment diagram above for the software deployment.
+## Cloud Setup Instructions
+The following instructions detail how to configure the cloud infrastructure needed for this project. Refer to the deployment diagram above for the software deployment.
 
 ### Firebase Database and Storage
 The Firebase database is used to store sensor data, temperature thresholds, as well as video and audio recordings. To set up the Firebase database perform the following:  
@@ -77,27 +77,36 @@ The Firebase database is used to store sensor data, temperature thresholds, as w
 3. Enter information, disable analytics and select create project
 4. Once project is created, navigate to Realtime Database on the left sidebar
 5. Select start in test mode and enable.
-6. Perform steps 5-6 for Storage
+6. Perform steps 4-5 for Storage
 7. Navigate to Authentication on the left sidebar
 8. At the top, select Sign-in method and then select Anonymous
-9. Navigate to the settings icon next to Project Overview on the left sidebar and select project settings, take note of the Project ID and Web API Key
-10. Finally navigate to the Realtime Database again and take note of Database URL which can be copied.
+9. Navigate to the settings icon next to Project Overview on the left sidebar and select project settings, take note of the **Project ID** and **Web API Key**
+10. Finally navigate to the Realtime Database again and take note of **Database URL** which can be copied.
 
 ### Twilio SMS Service
 Twilio SMS service allows for sending SMS messages through Python. Twilio provides a phone number as well as a Python API that can be used to send SMS messages. To set up Twilio perform the following:  
 1. Navigate to https://www.twilio.com/ and sign up for a free trial
 2. Go through the Twilio tutorial to get a phone number
-3. Once the phone number has been created, take note of the Phone Number, Account SID, and Auth Token in the main console.
+3. Once the phone number has been created, take note of the **Phone Number**, **Account SID**, and **Auth Token** in the main console.
 4. Navigate to Develop on the left sidebar, select Phone Numbers > Manage > Verified Caller ID's and add phone numbers which will receive the SMS messages.
+
+## Raspberry Pi/Device Setup
 
 ### Clone Repository
 1. Create a new directory to clone this repo.
 2. Open the terminal, navigate to the new directory and clone the repo using the command: git clone https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project.git
+3. Do this for Raspberry Pi 1, 2, and 3.
 
-### Configure Firebase Database Configuration
-1. Edit [firebase.py](Python_Modules/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
+### Configure Firebase Module
+1. Edit [firebase.py](Python_Modules/firebase.py) and set the **api_key**, **project_id**, and **database_url** variables, with the values that were previously noted in the [Firebase Database](#firebase-database-and-storage) setup.
+2. Do this for Raspberry Pi 1, 2, and 3.
 
-## Raspberry Pi/Device Setup
+### Configure Notify Module
+1. Edit [notify.py](Python_Modules/notify.py) and set the **account_sid**, **auth_token** variables in the `__init__` method, with the values that were previously noted in the [Twilio](#twilio-sms-service) setup.
+2. In the `__init__` method, set the **message_list** variable to a dictionary of the Verifified Caller ID's that were set in the [Twilio](#twilio-sms-service) setup.
+3. In the `notify_users` method, set the **from** variable to the Phone Number that was previously noted in the [Twilio](#twilio-sms-service) setup.
+4. Do this for Raspberry Pi 1, 2, and 3.
+
 ### Raspberry Pi 1
 
 ### Raspberry Pi 2
@@ -107,7 +116,6 @@ Raspberry Pi 2 is responsible for hosting the Video Livestream and monitoring/de
 
 ### Raspberry Pi 3
 Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Front End GUI for this project. To set up the flask server, perform the following:
-1. Navigate to the flask_app directory in the cloned repo
-2. Edit [firebase.py](flask_app/firebase.py) and write the api_key, project_id, and database_url, for the Firebase database.
-3. Open [requirements.txt](flask_app/requirements.txt), and install any missing python packages that are listed in the file.
-4. Open the terminal, navigate to the flask_app directory, and start the flask app using the command: source start_flask.sh
+1. Navigate to the flask_app directory in the cloned repo.
+2. Open [requirements.txt](requirements.txt), and install any missing python packages that are listed in the file.
+3. Open the terminal, navigate to the flask_app directory, and start the flask app using the command: source start_flask.sh
