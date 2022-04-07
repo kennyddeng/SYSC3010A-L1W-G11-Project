@@ -15,7 +15,7 @@ def record():
     # ex. if you want a 10 second rendered audio/video clip,
     # you will need to record for 10+1 seconds (11 seconds)
     dev_index = 1  # device index found by p.get_device_info_by_index(ii)
-    wav_output_filename = str(Path().resolve().parent) + '/SYSC3010A-L1W-G11-Project/recordings/audio.wav'  # record and save to filename
+    wav_output_filename = str(Path().resolve().parent) + "/SYSC3010A-L1W-G11-Project/recordings/audio.wav"  # record and save to filename
 
     # remove existing audio file if exists
     if os.path.exists(wav_output_filename):
