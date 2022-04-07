@@ -119,3 +119,7 @@ Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Fr
 1. Navigate to the flask_app directory in the cloned repo.
 2. Open [requirements.txt](requirements.txt), and install any missing python packages that are listed in the file.
 3. Open the terminal, navigate to the flask_app directory, and start the flask app using the command: source start_flask.sh
+
+
+## Installation Verification
+Run all scripts under the folder [UnitTestDemo](UnitTestDemo/). If all tests have passed all hardware/software has been installed/configured correctly.
