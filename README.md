@@ -109,7 +109,7 @@ Twilio SMS service allows for sending SMS messages through Python. Twilio provid
 
 ### Raspberry Pi 1
 Raspberry Pi 1 is responsible for hosting the local and firebase Databases. It is also responsible for the actuator (senseHat button) used as a night light. Raspberry Pi 1 will record data temperature readings from the senseHat and push the entry into the databases. When the recorded temperature exceeds the threshold limit set an SMS notification will be sent notifying the user of the detected change in the data. 
-1. To record and push temperature data, navigate to [firebase_v2.py]([firebase_v2.py](https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project/blob/main/write/firebase_v2.py)) as well as [local_SQL.py](https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project/blob/main/write/local_SQL.py) and run the script.
+1. To record and push temperature data, navigate to [firebase_v2.py](/firebase_v2.py) as well as [local_SQL.py](https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project/blob/main/write/local_SQL.py) and run the script.
 2. To use the night light actuator, navigate to [night_light.py](https://github.com/kennyddeng/SYSC3010A-L1W-G11-Project/blob/main/write/night_light.py) and run the script.
 
 ### Raspberry Pi 2
