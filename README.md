@@ -49,17 +49,17 @@ The following instructions detail how to configure the hardware needed for this 
 ### SenseHat Installation
 Raspberry Pi 1 is connected to the SenseHat. To install the SenseHat perform the following:  
 1. Turn off and disconnect the Raspberry Pi from the power supply.
-2. Align the SenseHat with the GPIO pins on the Raspberry Pi, push down until the SenseHat rests firmly on top of the Pi. *Insert image?*
+2. Align the SenseHat with the GPIO pins on the Raspberry Pi, push down until the SenseHat rests firmly on top of the Pi.
 
 ### PiCamera Installation
 Raspberry Pi 2 is connected to the PiCamera. To install the PiCamera perform the following:
 1. Turn off and disconnect the Raspberry Pi from the power supply.
-2. Open Raspberry Pi CSI port clasp. Align the PiCamera module with the CSI port on the Raspberry Pi, push down until the PiCamera module is fully seated in the CSI port. Close Raspberry Pi CSI port clasp. *Insert image?*
+2. Open Raspberry Pi CSI port clasp. Align the PiCamera module with the CSI port on the Raspberry Pi, push down until the PiCamera module is fully seated in the CSI port. Close Raspberry Pi CSI port clasp.
 
 ### USB Microphone Installation
 Raspberry Pi 2 is connected to the USB Microphone. To install the USB Microphone perform the following:
 1. Turn off and disconnect the Raspberry Pi from the power supply.
-2. Plug USB Microphone into any available USB port on the Raspberry Pi. Rotate 180 degrees if USB Microphone does not insert. Try 3x as you were right the first attempt. *Insert image?*
+2. Plug USB Microphone into any available USB port on the Raspberry Pi. Rotate 180 degrees if USB Microphone does not insert. Try 3x as you were right the first attempt.
 
 ### Sound Sensor Installation
 Raspberry Pi 2 is connected to the Sound Sensor. To install the Sound Sensor perform the following:
@@ -119,8 +119,8 @@ Raspberry Pi 2 is responsible for hosting the Video Livestream and monitoring/de
 
 ### Raspberry Pi 3
 Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Front End GUI for this project. To set up the flask server, perform the following:
-1. Navigate to the flask_app directory in the cloned repo.
-2. Open [requirements.txt](requirements.txt), and install any missing python packages that are listed in the file.
+1. Open [requirements.txt](requirements.txt), and install any missing python packages that are listed in the file.
+2. Navigate to the flask_app directory in the cloned repo.
 3. Open the terminal, navigate to the flask_app directory, and start the flask app using the command: source start_flask.sh
 
 
