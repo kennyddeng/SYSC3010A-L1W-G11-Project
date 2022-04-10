@@ -64,8 +64,8 @@ Raspberry Pi 2 is connected to the USB Microphone. To install the USB Microphone
 ### Sound Sensor Installation
 Raspberry Pi 2 is connected to the Sound Sensor. To install the Sound Sensor perform the following:
 1. Turn off and disconnect the Raspberry Pi from the power supply.
-2. Plug Male end of Male-Female Jumper Wires to Sound Sensor Pinout. 1x for OUT/D.OUT, 1x for 5V, 1x for GND. Refer to Figure 1 for pin labels. NOTE: In Figure 1, OUT/A.OUT is not required (it is an additional microphone feature built into this make and model sound sensor, for this tutorial it is not required to be used).
-3. Plug Female end of Male-Female Jumper Wires to Raspberry Pi 4 Header Pins. Refer to Figure 1 for pin labels. Plug OUT/D.OUT wire into GPIO2 (PIN 3), Plug 5V into 5V (PIN 4), Plug GND into GROUND (PIN 6). NOTE: For more advanced users, you may be able to use different GPIO pins other then the ones listed in this tutorial. Please refer to Further Relevant Readings: Raspberry Pi GPIO Pins for reference.
+2. Plug Male end of Male-Female Jumper Wires to Sound Sensor Pinout. 1x for OUT/D.OUT, 1x for 5V, 1x for GND.
+3. Plug Female end of Male-Female Jumper Wires to Raspberry Pi 4 Header Pins. Plug OUT/D.OUT wire into GPIO2 (PIN 3), Plug 5V into 5V (PIN 4), Plug GND into GROUND (PIN 6). NOTE: For more advanced users, you may be able to use different GPIO pins other then the ones listed in this tutorial.
 
 ## Cloud Setup Instructions
 The following instructions detail how to configure the cloud infrastructure needed for this project. Refer to the deployment diagram above for the software deployment.
