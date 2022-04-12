@@ -67,6 +67,8 @@ Raspberry Pi 2 is connected to the Sound Sensor. To install the Sound Sensor per
 2. Plug Male end of Male-Female Jumper Wires to Sound Sensor Pinout. 1x for OUT/D.OUT, 1x for 5V, 1x for GND.
 3. Plug Female end of Male-Female Jumper Wires to Raspberry Pi 4 Header Pins. Plug OUT/D.OUT wire into GPIO2 (PIN 3), Plug 5V into 5V (PIN 4), Plug GND into GROUND (PIN 6). NOTE: For more advanced users, you may be able to use different GPIO pins other then the ones listed in this tutorial.
 
+### Packages Installation
+There are a number of packages that are required to be installed prior to running the project file code. Navigate to [requirements.txt](requirements.txt) and install all listed packages using the provided commands. NOTE: Commands only work on Raspberry Pi devices.
 ## Cloud Setup Instructions
 The following instructions detail how to configure the cloud infrastructure needed for this project. Refer to the deployment diagram above for the software deployment.
 
@@ -115,7 +117,7 @@ Raspberry Pi 1 is responsible for hosting the local and firebase Databases. It i
 ### Raspberry Pi 2
 Raspberry Pi 2 is responsible for hosting the Video Livestream and monitoring/detecting ambient sound levels. When the ambient sound level reaches over a certain threshold, a video/audio file will be captured and uploaded to Firebase Storage for viewing on a Flask Server.
 1. To host the Video Livestream, navigate to [livestream.py](livestream.py) in the root directory and run the script.
-2. To constantly poll the ambient environment and detect high sound levels (and also record video/audio when this event occurs), navigate to [device2_monitor.py](device2_monitor.py) in the root directory and run the script.
+2. To constantly poll the ambient environment and detect high sound levels (and also record video/audio when this event occurs), navigate to [device2_monitor.py](device2_monitor.py) in the root directory and run the script. NOTE: Some adjustment of the sound detection threshold on the back of the Sound Sensor may be required (raise/lower threshold using the adjustment screw on the back of the Sound Sensor as necessary).
 
 ### Raspberry Pi 3
 Raspberry Pi 3 is responsible for hosting the Flask server that serves as the Front End GUI for this project. To set up the flask server, perform the following:
